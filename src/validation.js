@@ -23,6 +23,7 @@ export const validation = (value, rules, passwordVal) => {
         if (rules.minLength && value.length > rules.minLength) {
             isValid = true;
         } else if (rules.minLength) {
+            isValid = false;
             messages.push("Min length should be " + rules.minLength)
         }
 
@@ -41,6 +42,7 @@ export const validation = (value, rules, passwordVal) => {
         if (rules.confirmPas && passwordVal === value) {
             isValid = true;
         } else if (rules.confirmPas) {
+            isValid = false;
             messages.push("Passwords do not match")
         }
 

@@ -39,6 +39,7 @@ const FormRight = () => {
         minLength: 6,
         required: true,
         passwordCheck: true,
+        confirmPas: true,
       },
       isValid: false,
       messages: [],
@@ -78,7 +79,7 @@ const FormRight = () => {
       isValid: false,
       messages: []
     },
-    submitButton: false
+    submitButton: true
   })
 
   ///////////////////////////////////////////////////////////////////////////
@@ -91,9 +92,10 @@ const FormRight = () => {
     resultData[id].messages = result.messages;
     resultData[id].isValid = result.isValid;
     resultData.password.messageQuality = result.messageQuality;
+    resultData.submitButton = true;
     if(resultData.email.isValid && resultData.password.isValid &&
       resultData.confirmPassword.isValid && resultData.age.isValid){
-      resultData.submitButton = true;
+      resultData.submitButton = false;
     };
     setData(resultData);
   }
@@ -101,10 +103,6 @@ const FormRight = () => {
   const formChaneHandler = (e) => {
     e.preventDefault();
   }
-  // BUGLARIM
-  // 1. Butun inputlari duzgun doldurandan sonra her hansinsa deyishib yalnish edende 
-  // form ishlememelidir amma ishleyir
-  // ilk confirm-i yazandan sonra password-u yazanda eyni olmurlar
 
   return (
     <div className="form_right">

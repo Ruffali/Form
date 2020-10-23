@@ -16,8 +16,8 @@ const Input = (props) => {
         case ("submit"):
             return (
                 <input
-                    className={props.disabled ? classes.submit : classes.disabled}
-                    disabled={props.disabled ? 'true' : 'false'}
+                    className={!props.disabled ? classes.submit : classes.disabled}
+                    disabled={props.disabled}
                     type={props.type}
                     value={props.value}
                 />
